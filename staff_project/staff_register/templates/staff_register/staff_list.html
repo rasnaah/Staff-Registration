@@ -1,0 +1,41 @@
+ {% extends "staff_register/base.html" %}
+
+    {% block content %}
+    <p class="lead font-italic">New Staff Member has been registered. </p>
+
+    <table class="table table-borderless">
+       <thead class="border-bottom fontweight-bold">
+          <tr>
+             <td>Full Name</td>
+             <td>Contact no</td>
+             <td>Address</td>
+             <td>
+                <a href="{%url 'staff_insert' %}" class="btn btn-outline-success btn-lg" style="background-color:lightgreen">
+                     <i class="fas fa-plus">Add New</i>
+                </a>
+             </td>
+          </tr>
+       </thead>
+       <tbody>
+          {% for staff in staff_list %}
+          <tr>
+             <td>{{staff.fullname}}</td>
+             <td>{{staff.contact_no}}</td>
+             <td>{{staff.address}}</td>
+             <td>
+               <a href="{% url 'staff_update' staff.id %}" class="btn text-secondary px-0">
+                  <button type="edit" class="btn btn-success btnblock btn-lg" style="background-color:blue">EDIT</button>
+               </a>
+
+               <form action="{% url 'staff_delete' staff.id %}" method="post" class='d-inline'>
+                  {% csrf_token %}
+                  <button type="submit" class="btn">
+                     <button type="delete" class="btn btn-success btnblock btn-lg" style="background-color:red">DELETE</button>
+                  </button>
+               </form>
+            </td>
+          </tr>
+          {% endfor %}
+       </tbody>
+    </table>
+    {% endblock content %}

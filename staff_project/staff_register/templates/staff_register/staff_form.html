@@ -1,0 +1,21 @@
+{% extends "staff_register/base.html" %}
+{% load crispy_forms_tags %}
+
+    {% block content %}
+    <form action = "" method = "post" autocomplete = "off">
+        {% csrf_token %}
+    {{form|crispy}}
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btnblock btn-lg">Register</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'staff_list' %}" class="btn btn-secondary btn-block btn-lg" style="background-color: rgb(70, 76, 199);">
+                <i class="fas fa-stream">Back to List</i>
+            </a>
+        </div>
+    </div>
+    
+    </form>
+    {% endblock content %}
+

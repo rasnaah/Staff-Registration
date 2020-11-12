@@ -1,0 +1,21 @@
+● staff_project
+|
++---● staff_register (app folder)
+|   |
+|   +--● migrations (includes files related to migrations)
+|   |  
+|   +--● templates
+|   |  |--● staff_register
+|   |  |  |--base.html
+|   |  |  |--staff_form.html
+|   |  |  |--staff_list.html
+|   | 
+|   |-- models.py
+|   |-- forms.py
+|   |-- urls.py
+|   |-- views.py
+|
++---● staff_project (project folder)
+|   |
+|   |--settings.py 
+|   |--urls.py
